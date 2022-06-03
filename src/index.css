@@ -125,6 +125,9 @@ input{
 .text-center{
   text-align:center;
 }
+.text-left{
+  text-align:left;
+}
 @media (max-width:750px){
   .grid-container{
     grid-template-columns: 1fr 1fr 1fr;
