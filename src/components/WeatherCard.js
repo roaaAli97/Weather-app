@@ -10,8 +10,8 @@ function WeatherCard(props){
       <React.Fragment >
            {Object.keys(props.data).length >0 && <div className="weather_card" >
             <img src={`${current_condition[0].weatherIconUrl[0].value}`} alt="weather_icon"></img>
-            <h2 className="text-center">{request[0].query}</h2>
-            <div style={{display:"flex" , gap:"2rem",alignItems:"flex-start" ,margin:"1rem 0" }}>
+            <h2 >{request[0].query}</h2>
+            <div style={{display:"flex" , gap:"2rem",alignItems:"flex-start" ,margin:"1rem 0", justifyContent:"center" }}>
              <div style={{textAlign:"left"}}>
               <p >{current_condition[0].observation_time}</p>
               <p >Feels Like: {current_condition[0].FeelsLikeC} &#8451; </p>
