@@ -8,7 +8,6 @@ function WeatherAppLandingPage (){
    const {data} = weatherData
    const {weather} = data || [];
    const [error, setError] = useState("");
-   console.log(error);
   useEffect(()=>{
     if(city){
        fetch(`https://api.worldweatheronline.com/premium/v1/weather.ashx?key=c040bac52f674084a4670829222705&q=${city}&tp=24&num_of_days=7&format=json`)
@@ -16,7 +15,7 @@ function WeatherAppLandingPage (){
        .then(weatherData=>{
          const {data} = weatherData;
          const {error} = data;
-         console.log(error);
+         
          if(error){
            setError(error[0].msg)
          }
