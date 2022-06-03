@@ -7,22 +7,38 @@ function WeatherAppLandingPage (){
    const {city} = useContext(CityContext);
    const {data} = weatherData
    const {weather} = data || [];
-  
+   const [error, setError] = useState("");
+   console.log(error);
   useEffect(()=>{
     if(city){
        fetch(`https://api.worldweatheronline.com/premium/v1/weather.ashx?key=c040bac52f674084a4670829222705&q=${city}&tp=24&num_of_days=7&format=json`)
        .then(result=> result.json())
-       .then(weatherData=>{setWeatherData({...weatherData});});
+       .then(weatherData=>{
+         const {data} = weatherData;
+         const {error} = data;
+         console.log(error);
+         if(error){
+           setError(error[0].msg)
+         }
+         else{
+          setWeatherData({...weatherData});
+          setError("")
+         }
+        
+        });
     }
   },[city])
   return(
       <React.Fragment>
-       <div className="grid-container">
-       <WeatherCard data={weatherData}/>
+      
+       {error? <h2 className="text-center">{error}</h2> : 
+       <div className="grid-container"> 
+        <WeatherCard data={weatherData}/>
        {weather&& weather.map(weather=>{
         return <SecondaryWeatherCard data={weather}></SecondaryWeatherCard>
      })}
-       </div>
+     
+       </div>}
       
       </React.Fragment>
   )

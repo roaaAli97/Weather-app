@@ -5,7 +5,7 @@ function SecondaryWeatherCard({type,...props}){
    return(
     
          <div className="weather_card">
-          <h3 className="p-small">({type === "past"? date :convertDateToDay(date)})</h3>
+          <h3 className="p-small">({type === "past"? date :`${convertDateToDay(date)} ${date}`})</h3>
           <p className="p-small">Max Temp: {maxtempC} &#8451;</p>
           <p className="p-small">Min Temp: {mintempC} &#8451;</p>
           <p className="p-small">Sun Rise: {astronomy[0].sunrise}</p>
