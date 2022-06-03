@@ -34,7 +34,7 @@ function WeatherDashBoard(){
    return (
        <React.Fragment>
 
-         {error? <h2>{error}</h2>:
+         {error? <h2 className="text-center">{error}</h2>:
          <div>
          <h2 className="text-center">Weather Data for the past 10 days for {city}</h2>
          <div className= "weather-dashboard">
